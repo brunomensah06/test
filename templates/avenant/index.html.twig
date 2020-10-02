@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avenant index{% endblock %}
+
+{% block body %}
+    <h1>Avenant index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>MtHTVA</th>
+                <th>MtTVA</th>
+                <th>MtTTC</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avenant in avenants %}
+            <tr>
+                <td>{{ avenant.id }}</td>
+                <td>{{ avenant.MtHTVA }}</td>
+                <td>{{ avenant.MtTVA }}</td>
+                <td>{{ avenant.MtTTC }}</td>
+                <td>
+                    <a href="{{ path('avenant_show', {'id': avenant.id}) }}">show</a>
+                    <a href="{{ path('avenant_edit', {'id': avenant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('avenant_new') }}">Create new</a>
+{% endblock %}
