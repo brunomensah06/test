@@ -134,7 +134,9 @@ class Projet
     }
     public function __toString()
     {
-        return (string) $this->getAvenants();
+        return $this->IntituleMarche;
     }
+    
+
 
 }
